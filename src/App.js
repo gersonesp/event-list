@@ -1,26 +1,73 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import ListView from "./components/ListView";
+import MapView from "./components/MapView";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { page: 1, data: [] };
+    this.getData = this.getData.bind(this);
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+  }
+
+  componentDidMount() {
+    this.getData(this.state.page);
+  }
+
+  next() {
+    const nextPage = this.state.page + 1;
+
+    this.setState({ page: nextPage });
+    this.getData(nextPage);
+  }
+
+  previous() {
+    const previousPage = this.state.page - 1;
+
+    if (previousPage >= 1) {
+      this.setState({ page: previousPage });
+    }
+    this.getData(previousPage);
+  }
+
+  async getData(page) {
+    let response;
+
+    try {
+      if (page > 1) {
+        response = await fetch(
+          `https://api.mobilize.us/v1/events?page=${page}`
+        );
+      } else {
+        response = await fetch("https://api.mobilize.us/v1/events");
+      }
+      const data = await response.json();
+
+      this.setState({ data: data.data });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <ListView eventList={this.state} />
+
+        <button type="button" onClick={this.previous}>
+          Previous
+        </button>
+
+        <button type="button" onClick={this.next}>
+          Next
+        </button>
+
+        <MapView />
+      </div>
+    );
+  }
 }
 
 export default App;
