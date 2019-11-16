@@ -6,7 +6,10 @@ import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { page: 1, data: [] };
+    this.state = {
+      page: 1,
+      data: []
+    };
     this.getData = this.getData.bind(this);
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
@@ -55,11 +58,9 @@ class App extends Component {
     return (
       <div className="App">
         <ListView eventList={this.state} />
-
         <button type="button" onClick={this.previous}>
           Previous
         </button>
-
         <button type="button" onClick={this.next}>
           Next
         </button>
