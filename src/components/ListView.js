@@ -25,6 +25,7 @@ const ListView = props => {
 
               {event.timeslots.length > 1 ? (
                 <div className="timeslots">
+                  {/* if the event has more than one timeslot render this div  */}
                   {`${event.timeslots.length} times from 
                   ${new Date(event.timeslots[0].start_date)} to 
                   ${new Date(
@@ -32,8 +33,12 @@ const ListView = props => {
                   )}
                 `}
                 </div>
-              ) : event.timeslots[0].start_date !== "undefined" ? (
-                new Date(event.timeslots[0].start_date)
+              ) : event.timeslots.length === 1 &&
+                event.timeslots[0].start_date !== "undefined" ? (
+                <div className="timeslots">
+                  {/* if the event has only one timeslot then render this div */}
+                  {`${new Date(event.timeslots[0].start_date)}`}
+                </div>
               ) : null}
             </div>
           </li>
