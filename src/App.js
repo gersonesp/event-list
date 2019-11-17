@@ -60,7 +60,7 @@ class App extends Component {
         <h1>Event List View</h1>
 
         <div className="listMapContainer">
-          <div>
+          <div className="list-section">
             <ListView eventList={this.state} />
 
             <div>
@@ -74,7 +74,7 @@ class App extends Component {
             </div>
           </div>
 
-          <MapView />
+          <MapView state={this.state.data} />
         </div>
       </div>
     );

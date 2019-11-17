@@ -1,9 +1,18 @@
 import React from "react";
 
+const convertTimestamptoTime = unixTimestamp => {
+  // convert to milliseconds and
+  // then create a new Date object
+  const dateObj = new Date(unixTimestamp * 1000);
+  const utcString = dateObj.toUTCString();
+
+  const time = utcString.slice(0, 16);
+  return time;
+};
+
 const ListView = props => {
   const eventList = props.eventList.data;
 
-  console.log(eventList);
   return (
     <div className="ListView">
       <ul>
@@ -14,21 +23,23 @@ const ListView = props => {
             </div>
 
             <div className="eventText">
-              <div className="title">{event.title}</div>
-              <div className="details">
-                {event.location ? (
-                  <div className="address">{`${event.location.address_lines[0]} ${event.location.locality}, ${event.location.region} ${event.location.postal_code}`}</div>
-                ) : (
-                  ""
-                )}
+              <div>
+                <div className="title">{event.title}</div>
+                <div className="details">
+                  {event.location ? (
+                    <div className="address">{`${event.location.address_lines[0]} ${event.location.locality}, ${event.location.region} ${event.location.postal_code}`}</div>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
 
               {event.timeslots.length > 1 ? (
                 <div className="timeslots">
                   {/* if the event has more than one timeslot render this div  */}
                   {`${event.timeslots.length} times from 
-                  ${new Date(event.timeslots[0].start_date)} to 
-                  ${new Date(
+                  ${convertTimestamptoTime(event.timeslots[0].start_date)} to 
+                  ${convertTimestamptoTime(
                     event.timeslots[event.timeslots.length - 1].start_date
                   )}
                 `}
@@ -37,7 +48,7 @@ const ListView = props => {
                 event.timeslots[0].start_date !== "undefined" ? (
                 <div className="timeslots">
                   {/* if the event has only one timeslot then render this div */}
-                  {`${new Date(event.timeslots[0].start_date)}`}
+                  {`${convertTimestamptoTime(event.timeslots[0].start_date)}`}
                 </div>
               ) : null}
             </div>

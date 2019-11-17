@@ -4,6 +4,8 @@ import mapboxgl from "mapbox-gl";
 mapboxgl.accessToken =
   "pk.eyJ1IjoianNvbi0iLCJhIjoiY2szMXR0c3RuMGN5eDNjcHBrYzlhOXZhMiJ9.r4anECwkWAynyfKyQx4xHg";
 
+let map;
+
 class MapView extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ class MapView extends Component {
   }
 
   componentDidMount() {
-    const map = new mapboxgl.Map({
+    map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [this.state.lng, this.state.lat],
@@ -43,10 +45,13 @@ class MapView extends Component {
   }
 
   render() {
+    const eventList = this.props.state;
     return (
       <div className="MapView">
         {/* The mapContainer ref specifies that map should be drawn to the HTML page in a new <div> element. */}
         <div className="mapContainer" ref={el => (this.mapContainer = el)} />
+
+        {/* populate the map with markers */}
       </div>
     );
   }
