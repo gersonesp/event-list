@@ -8,17 +8,15 @@ class MapView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lng: 5,
-      lat: 34,
-      zoom: 2
+      lng: -96,
+      lat: 39,
+      zoom: 2.5
     };
 
     this.mapContainer = React.createRef();
   }
 
   componentDidMount() {
-    console.log(this.mapContainer);
-
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",
@@ -46,15 +44,7 @@ class MapView extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <div className="sidebarStyle">
-            {/* used to display the longitude, latitude, and zoom of the map. */}
-            Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom:{" "}
-            {this.state.zoom}
-          </div>
-        </div>
-
+      <div className="MapView">
         {/* The mapContainer ref specifies that map should be drawn to the HTML page in a new <div> element. */}
         <div className="mapContainer" ref={el => (this.mapContainer = el)} />
       </div>
