@@ -24,6 +24,7 @@ class App extends Component {
 
     this.setState({ page: nextPage });
     this.getData(nextPage);
+    window.scrollTo(0, 0);
   }
 
   previous() {
@@ -33,6 +34,8 @@ class App extends Component {
       this.setState({ page: previousPage });
     }
     this.getData(previousPage);
+
+    window.scrollTo(0, 0);
   }
 
   async getData(page) {
