@@ -45,7 +45,7 @@ const ListView = props => {
                 `}
                 </div>
               ) : event.timeslots.length === 1 &&
-                event.timeslots[0].start_date !== "undefined" ? (
+                typeof event.timeslots[0].start_date !== "undefined" ? (
                 <div className="timeslots">
                   {/* if the event has only one timeslot then render this div */}
                   {`${convertTimestamptoTime(event.timeslots[0].start_date)}`}

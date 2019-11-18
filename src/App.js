@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ListView from "./components/ListView";
-import MapView from "./components/MapView";
+import MapViewR from "./components/MapViewR";
 import "./App.css";
 
 class App extends Component {
@@ -57,7 +57,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Event List View</h1>
+        <div className="header">
+          <h1>Event List View</h1>
+        </div>
 
         <div className="listMapContainer">
           <div className="list-section">
@@ -74,7 +76,7 @@ class App extends Component {
             </div>
           </div>
 
-          <MapView state={this.state.data} />
+          <MapViewR state={this.state.data} />
         </div>
       </div>
     );

@@ -2,9 +2,17 @@
   font-size: 1.8rem;
 }
 
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+}
+
 .listMapContainer {
   display: flex;
   justify-content: space-between;
+  margin-top: 10rem;
 }
 
 .ListView {
@@ -14,7 +22,7 @@
 }
 
 .list-section {
-  width: 80rem;
+  width: 100rem;
 }
 
 .ListView ul {
@@ -42,12 +50,6 @@
   height: 100%;
 }
 
-/* .ListView .eventText {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-} */
-
 .ListView .title {
   padding-bottom: 2rem;
 }
@@ -73,12 +75,8 @@
 }
 
 .marker {
-  background-image: url('./mapbox-icon.png');
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
+  width: 30px;
+  height: 30px;
 }
 
 @media only screen and (max-width: 800px) {
