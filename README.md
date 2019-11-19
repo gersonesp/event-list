@@ -7,6 +7,7 @@
 3. Run 'npm start' to run app on localhost:3000
 
 - Also hosted @ https://event-list-map.herokuapp.com/
+- Please test site on both Firefox and Chrome.
 
 ## App details
 
