@@ -69,7 +69,7 @@ class MapViewR extends Component {
             style="mapbox://styles/mapbox/streets-v9"
             containerStyle={{
               height: "600px",
-              width: "800px"
+              width: "600px"
             }}
             center={[
               this.state.userLocation.longitude || -97,

@@ -6,6 +6,8 @@
 2. Run 'npm i' in apps root directory to install dependencies
 3. Run 'npm start' to run app on localhost:3000
 
+- Also hosted @ https://event-list-map.herokuapp.com/
+
 ## App details
 
     The app was created with the use of React.js to create a fast and responsive single page application. Users are able to see a list of events on the right and a map view on the left, with markers indicating where each event is located. The map was implemented with the use of react-mapbox-gl framework.
