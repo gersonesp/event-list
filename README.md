@@ -1,3 +1,20 @@
+# Event List for Mobilize America
+
+## To run app locally:
+
+1. Clone repo to local machine.
+2. Run 'npm i' in apps root directory to install dependencies
+3. Run 'npm start' to run app on localhost:3000
+
+## App details
+
+    The app was created with the use of React.js to create a fast and responsive single page application. Users are able to see a list of events on the right and a map view on the left, with markers indicating where each event is located. The map was implemented with the use of react-mapbox-gl framework.
+
+    The user is able to scroll down the list without losing sight of the map. Once the user reaches the end of the list they can click 'next' to see the next group of events without having to refresh the entire webpage.
+    The map then automatically repopulates when the new list is loaded.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

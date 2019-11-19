@@ -13,6 +13,7 @@ class App extends Component {
     this.getData = this.getData.bind(this);
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
+    // this.filterData = this.filterData.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +41,7 @@ class App extends Component {
 
   async getData(page) {
     let response;
+    // const date = new Date();
 
     try {
       if (page > 1) {
@@ -50,12 +52,21 @@ class App extends Component {
         response = await fetch("https://api.mobilize.us/v1/events");
       }
       const data = await response.json();
+      // this.filterData(data.data, date);
 
       this.setState({ data: data.data });
     } catch (error) {
       console.error(error);
     }
   }
+
+  // filterData(data, date) {
+  //   const newData = data.map(event =>
+  //     event.timeslots.filter(timeSlots => timeSlots.start_date * 1000 > date)
+  //   );
+
+  //   console.log("newData, ", newData);
+  // }
 
   render() {
     return (
@@ -69,11 +80,15 @@ class App extends Component {
             <ListView eventList={this.state} />
 
             <div>
-              <button type="button" onClick={this.previous}>
+              <button
+                className="previousButton"
+                type="button"
+                onClick={this.previous}
+              >
                 Previous
               </button>
 
-              <button type="button" onClick={this.next}>
+              <button className="nextButton" type="button" onClick={this.next}>
                 Next
               </button>
             </div>

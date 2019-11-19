@@ -2,6 +2,34 @@
   font-size: 1.8rem;
 }
 
+.App .previousButton {
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin-right: 1rem;
+  margin-left: 2rem;
+}
+
+.App .nextButton {
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.nextButton:hover,
+.previousButton:hover {
+  cursor: pointer;
+}
+
+
 .header {
   position: fixed;
   top: 0;
@@ -32,7 +60,7 @@
 }
 
 .ListView li {
-  margin: 1rem 2rem;
+  margin: 2rem 2rem;
   border-bottom: 1px solid #d8d8d8;
   display: flex;
   justify-content: left;
@@ -42,7 +70,7 @@
   width: 150px;
   height: 100px;
   margin-right: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .ListView li img {
