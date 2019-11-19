@@ -24,6 +24,12 @@
   padding: 0;
 }
 
+.previousButton:hover,
+.nextButton:hover {
+  color: #24a1b2;
+  border-bottom: 1px solid #24a1b2;
+}
+
 .nextButton:hover,
 .previousButton:hover {
   cursor: pointer;
@@ -95,9 +101,9 @@
 
 .mapContainer {
   position: fixed;
-  right: 6rem;
-  width: 60rem;
-  height: 60rem;
+  right: 1rem;
+  width: 40rem;
+  height: 40rem;
 }
 
 .marker {

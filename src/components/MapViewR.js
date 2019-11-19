@@ -68,8 +68,8 @@ class MapViewR extends Component {
             // eslint-disable-next-line
             style="mapbox://styles/mapbox/streets-v9"
             containerStyle={{
-              height: "600px",
-              width: "600px"
+              height: "400px",
+              width: "400px"
             }}
             center={[
               this.state.userLocation.longitude || -97,
