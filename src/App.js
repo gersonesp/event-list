@@ -84,6 +84,12 @@ class App extends Component {
                 className="previousButton"
                 type="button"
                 onClick={this.previous}
+                disabled={this.state.page === 1 ? true : false}
+                style={
+                  this.state.page === 1
+                    ? { color: "grey", borderBottom: 0, cursor: "auto" }
+                    : null
+                }
               >
                 Previous
               </button>
